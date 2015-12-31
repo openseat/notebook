@@ -1,0 +1,17 @@
+{
+  "name": "openseat-notebook",
+  "version": "0.0.0",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "openseatnotebook/static/openseat-notebook/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "d3": "~3.5.5",
+    "webcola": "~3.1.0"
+  }
+}

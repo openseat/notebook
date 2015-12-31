@@ -1,0 +1,17 @@
+notebook:
+  extends:
+    file: ./docker-compose.yml
+    service: notebook
+  command: /install_and_run.sh
+  volumes:
+    - .:/opt/openseat-notebook
+    - ./notebooks:/home/jovyan/work
+  ports:
+    - "8888:8888"
+
+build:
+  build: .
+  dockerfile: build.Dockerfile
+  volumes:
+    - ./bin:/opt/openseat-notebook/bin
+    - ./openseatnotebook:/opt/openseat-notebook/openseatnotebook

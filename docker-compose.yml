@@ -1,0 +1,4 @@
+notebook:
+  build: .
+  ports:
+    - "443:8888"

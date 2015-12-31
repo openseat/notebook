@@ -1,0 +1,31 @@
+{
+  "devDependencies": {
+    "bower": "*",
+    "less": "*",
+    "less-plugin-autoprefix": "*",
+    "less-plugin-clean-css": "*",
+    "watch": "*"
+  },
+  "eslintConfig": {
+    "globals": {
+      "define": true,
+      "requirejs": true
+    },
+    "rules": {
+      "no-shadow": 0
+    }
+  },
+  "license": "BSD-3-Clause",
+  "name": "openseat-notebook",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/opensat/notebook.git"
+  },
+  "scripts": {
+    "bower": "cd openseatnotebook/static/src/lib && bower install --allow-root --config.interactive=false",
+    "less": "lessc --autoprefix --clean-css='--s1 --advanced --compatibility=ie8' openseatnotebook/static/src/less/openseat-notebook.less openseatnotebook/static/openseat-notebook/css/openseat-notebook.css",
+    "live": "bash bin/npm_watch_multiple.sh watch-bower watch-less",
+    "watch-bower": "watch 'npm run bower' openseatnotebook/static/src/lib",
+    "watch-less": "watch 'npm run less' openseatnotebook/static/src/less"
+  }
+}

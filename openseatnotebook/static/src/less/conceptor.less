@@ -1,0 +1,150 @@
+// notebook overrides
+#notebook-container.openseat-notebook {
+  transition-property: all;
+  transition-duration: 300ms;
+  width: 98%;
+
+  .CodeMirror {
+    max-width: none !important;
+  }
+}
+
+// mixesin
+.full-bleed {
+  width: 100%;
+}
+
+.grabbable {
+  cursor: grab;
+}
+
+.inline-concept, .inline-relationship {
+  color: #111;
+  background-color: #eee;
+  padding: 2px;
+  font-size: 80%;
+  border-radius: 5px;
+  border: solid 1px #fff;
+  text-decoration: none;
+}
+
+.text_cell_render.rendered_html .concept {
+  .inline-concept;
+}
+
+.widget-concept-book {
+  &.docked {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10000;
+    height: 32px;
+    background-color: #fff;
+    border-top: solid 1px #ababab;
+    box-shadow: 0px -2px 5px 0px rgba(0,0,0,0.125);
+    padding: 5px;
+  }
+  &.expanded {
+    height: 200px;
+  }
+  &, &.docked, &.expanded {
+    transition: all 0.3s;
+  }
+}
+
+
+.openseat {
+  .relationship {
+    .inline-relationship;
+  }
+
+  .bank {
+    position: relative;
+    .concept {
+      .grabbable;
+    }
+  }
+
+  .concept {
+    .inline-concept;
+
+    &.dragging {
+      position: absolute;
+      z-index: 9999;
+      white-space: nowrap;
+      cursor: grabbing;
+    }
+  }
+
+  &.openseat-classifier {
+    .full-bleed;
+    .concept {
+      margin: 0 2px 0 2px;
+      &, & * {
+        .grabbable;
+      }
+    }
+
+    table, th, td {
+      position: relative;
+    }
+  }
+
+  &.openseat-relater {
+    .full-bleed;
+
+    table{
+      table-layout: fixed;
+
+      thead th{
+        width: 18px;
+
+        &:first-child{
+          width: 80px;
+          height: 160px;
+        }
+
+        .concept{
+          transform: rotateZ(-90deg);
+          white-space: nowrap;
+          margin-bottom: 5px;
+        }
+      }
+
+      tbody th{
+        text-align: right;
+        white-space: nowrap;
+      }
+    }
+  }
+
+  &.openseat-systemigram {
+    defs {
+      #systemigram-end-arrow path {
+        stroke-width: 0;
+        fill: #000;
+      }
+    }
+    .node {
+      .grabbable;
+      rect{
+        fill: #eee;
+      }
+      &:not(.concept) {
+        font-size: 10px;
+      }
+    }
+    .link {
+      stroke: black;
+      stroke-width: 2px;
+      fill: none;
+      marker-end: url(#systemigram-end-arrow);
+    }
+  }
+}
+
+// reveal stuff
+.reveal i.fa {
+  font-style: normal;
+}
